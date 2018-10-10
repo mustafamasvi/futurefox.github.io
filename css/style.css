@@ -322,6 +322,7 @@ a:hover{
 
 .main_menu_bg{
 	margin-top:0px;
+	width: 110%;
 }
 .main_menu_bg .navbar-default {
     background-color: transparent; 
