@@ -2,9 +2,9 @@
 jQuery(document).ready(function() {
 	
 
-$(window).load(function () {
-		$(".loaded").fadeOut();
-		$(".preloader").delay(1000).fadeOut("slow");
+	$(window).load(function () {
+			$(".loaded").fadeOut();
+			$(".preloader").delay(1000).fadeOut("slow");
 	});
 	  
 	  
@@ -163,10 +163,31 @@ $('.grid').isotope({
 	//	delay: 10,
 	//	time: 1580
 	//});
+$('#submitNow').click(function() {
+	$.ajax({
+		type: "POST",
+  		url: "https://mandrillapp.com/api/1.0/messages/send.json",
+  		data: {
+			'key': 'kDaatkthpPG5xlA1zrYERg',
+			'message': {
+			'from_email': 'futurefoxco@gmail.com',
+			'to': [
+				{
+					'email': 'futurefoxco@gmail.com',
+					'type': 'to'
+				},
+				],
+			'autotext': 'true',
+			'subject': 'New Contact from Website',
+			'html': 'Hi '+ document.getElementById("firstName").value +' would like to connect with email: '+ document.getElementById('emailPlaceHolder').value +'\nHere is the message\n\n'+ document.getElementById("emailMessage").value
+			}
+		}
+	}).done(function(response) {
+	console.log(response); // if you're into that sorta thing
+	});
+	});
+});	
 		
-		
-});
-
 
 
 
